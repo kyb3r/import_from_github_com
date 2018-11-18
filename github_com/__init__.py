@@ -15,7 +15,7 @@ class GithubComFinder:
     """Handles `github_com....` modules."""
 
     def find_module(self, module_name, package_path):
-        if module_name.startswith('github_com'):
+        if module_name.startswith('github'):
             return GithubComLoader()
 
 
@@ -35,9 +35,10 @@ class GithubComLoader:
 
     def _install_module(self, fullname):
         if not self._is_installed(fullname):
-            url = fullname.replace('.', '/') \
-                .replace('github_com', 'git+https://github.com', 1)
-            pip.main(['install', url])
+            url = fullname.replace('.', '/').replace(
+                'github', 'git+https://github.com', 1
+            )
+            subprocess.call([sys.executable, "-m", "pip", "install", package])
 
     def _is_repository_path(self, fullname):
         return fullname.count('.') == 2
