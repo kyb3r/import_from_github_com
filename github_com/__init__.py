@@ -1,5 +1,5 @@
 import sys
-import pip
+import subprocess
 
 
 class IntermediateModule:
