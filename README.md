@@ -24,7 +24,7 @@ But with this magic package and power of [PEP-0302](https://www.python.org/dev/p
 do it automatically:
 
 ```python
-from github_com.kennethreitz import requests
+from github.kennethreitz import requests
 
 assert requests.get('https://github.com/nvbn/import_from_github_com').status_code == 200
 ```
