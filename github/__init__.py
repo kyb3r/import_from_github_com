@@ -35,7 +35,7 @@ class GithubComLoader:
 
     def _install_module(self, fullname):
         if not self._is_installed(fullname):
-            url = fullname.replace('.', '/').replace(
+            package = fullname.replace('.', '/').replace(
                 'github', 'git+https://github.com', 1
             )
             subprocess.call([sys.executable, "-m", "pip", "install", package])
