@@ -38,7 +38,7 @@ class GithubComLoader:
             package = fullname.replace('.', '/').replace(
                 'github', 'git+https://github.com', 1
             )
-            subprocess.call([sys.executable, "-m", "pip", "install", package])
+            subprocess.call([sys.executable, "-m", "pip", "install", package], stdout=subprocess.DEVNULL)
 
     def _is_repository_path(self, fullname):
         return fullname.count('.') == 2
